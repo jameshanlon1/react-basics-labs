@@ -8,15 +8,16 @@ import AddTaskForm from './components/Form';
 function App() {
   const [ taskState, setTaskState ] = useState({
     tasks: [
-      { id: 1, title:"Dishes", description: "Empty dishwasher", deadline: "Today" },
-      { id: 2, title: "Laundry", description: "Fold clothes and put away", deadline: "Tomorrow" },
-      { id: 3, title: "Tidy up", deadline: "Today" }
+      { id: 1, title:"Dishes", description: "Empty dishwasher", deadline: "Today", priority: "High" },
+      { id: 2, title: "Laundry", description: "Fold clothes and put away", deadline: "Tomorrow", priority: "medium" },
+      { id: 3, title: "Tidy up", deadline: "Today", priority: "low" }
     ]
   });
   const [ formState, setFormState ] = useState({
     title: "",
     description: "",
-    deadline: ""
+    deadline: "",
+    priority: ""
   });
   const doneHandler = (taskIndex) => {
     const tasks = [...taskState.tasks];
@@ -29,6 +30,8 @@ function App() {
     tasks.splice(taskIndex, 1);
     setTaskState({tasks});
   } 
+
+  
 
   const formChangeHandler = (event) => {
     let form = {...formState};
@@ -43,10 +46,15 @@ function App() {
       case "deadline":
           form.deadline = event.target.value;
           break;
+      case "priority":
+          form.priority = event.target.value;
+          break;
       default:
           form = formState;
     }
     setFormState(form);
+
+    
   }
   console.log(formState);
   
@@ -73,6 +81,7 @@ function App() {
           done={task.done}
           markDone={() => doneHandler(index)}
           deleteTask = {() => deleteHandler(index)}
+          priority={task.priority}
         />
       ))}
     <AddTaskForm submit={formSubmitHandler} change={formChangeHandler} />

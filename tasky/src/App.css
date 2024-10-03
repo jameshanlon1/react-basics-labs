@@ -65,11 +65,12 @@ button {
 
 input[type=text], input[type=date] {
   width: 60%;
-  padding: 12px 20px;
+  position: relative;
+  padding: p12px 20px;
   margin: 8px 0;
   display: inline-block;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: spx;
   box-sizing: border-box;
 }
 
@@ -90,6 +91,84 @@ input[type=submit]:hover {
 
 form {
   text-align: left;
+  width: 100%;
+  margin: auto;
+}
+
+
+
+.priority {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  color: white; /* For contrast with background */
+}
+
+
+/* Form container */
+form {
+  text-align: left;
   width: 50%;
   margin: auto;
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Label styling */
+label {
+  font-family: system-ui;
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* Input and Select fields */
+input[type="text"], input[type="date"], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+/* Select field for priority */
+select {
+  background-color: #5bb4c4;
+  color: white;
+  cursor: pointer;
+}
+
+/* Submit button styling */
+input[type="submit"] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Submit button hover */
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* General padding for the form container */
+div {
+  padding: 20px;
+}
+
+/* Optional: Style the form inputs on focus */
+input[type="text"]:focus, input[type="date"]:focus, select:focus {
+  border-color: #4CAF50;
+  outline: none;
 }
